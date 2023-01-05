@@ -1,0 +1,50 @@
+@font-face {
+    font-family: 'bionicle';
+    src: url('../fonts/bionicle.woff') format('woff'), 
+         url('../fonts/bionicle.ttf') format('truetype');
+}
+
+@keyframes convert {
+    from {font-family: inherit;}
+    to {font-family: bionicle;}
+}
+
+@keyframes convertBack {
+    from {font-family: bionicle;}
+    to {font-family: initial;}
+}
+
+:root {
+    background-image: url('../images/archives.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.navLink {
+    text-decoration: none;
+    color: black;
+}
+
+:nth-child(1) { --nth-child: 1 }
+:nth-child(2) { --nth-child: 2 }
+:nth-child(3) { --nth-child: 3 }
+:nth-child(4) { --nth-child: 4 }
+:nth-child(5) { --nth-child: 5 }
+:nth-child(6) { --nth-child: 6 }
+:nth-child(7) { --nth-child: 7 }
+:nth-child(8) { --nth-child: 8 }
+:nth-child(9) { --nth-child: 9 }
+:nth-child(10) { --nth-child: 10 }
+
+.navLink:hover span {
+    animation: convert calc(var(--nth-child) * 300ms) linear;
+    font-family: bionicle;
+}
+
+.activeNavLink {
+    font-family: bionicle;
+}
+
+.activeNavLink:hover span {
+    animation: convertBack calc(var(--nth-child) * 300ms) 500ms forwards;
+}
