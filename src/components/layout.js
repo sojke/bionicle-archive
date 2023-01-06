@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
-import {  } from './layout.module.css';
+import {  } from '../styling/layout.module.css';
 import AnimatedLink from './animatedLink';
 
 const Layout = ({ pageTitle, children }) => {
@@ -15,10 +15,10 @@ const Layout = ({ pageTitle, children }) => {
 `)
 
   return (
-    <div>
+    <>
       <title>{pageTitle} | {data.site.siteMetadata.title}</title>
-      <header><h1>{data.site.siteMetadata.title}</h1></header>
       <nav>
+        <header>{data.site.siteMetadata.title}</header>
         <ul>
           <li>
             <AnimatedLink linkText="HOME" linkTo="/"/>
@@ -35,7 +35,7 @@ const Layout = ({ pageTitle, children }) => {
         <h1>{pageTitle}</h1>
         {children}
       </main>
-    </div>
+    </>
   )
 }
 

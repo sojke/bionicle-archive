@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Link } from 'gatsby';
-import { navLink, activeNavLink } from './layout.module.css';
+import { navLink, activeNavLink } from '../styling/layout.module.css';
 
 const AnimatedLink = ({linkText, linkTo}) => {
     return (

@@ -4,9 +4,15 @@
          url('../fonts/bionicle.ttf') format('truetype');
 }
 
+@font-face {
+    font-family: 'voya-nui';
+    src: url('../fonts/voya-nui.woff') format('woff'), 
+         url('../fonts/voya-nui.ttf') format('truetype');
+}
+
 @keyframes convert {
-    from {font-family: inherit;}
-    to {font-family: bionicle;}
+    from {font-family: inherit; }
+    to {font-family: bionicle; }
 }
 
 @keyframes convertBack {
@@ -18,11 +24,33 @@
     background-image: url('../images/archives.jpg');
     background-repeat: no-repeat;
     background-size: cover;
+    color: white;
+    font-family: voya-nui;
+}
+
+body {
+    margin: 0;
+}
+
+nav {
+    display: flex;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+nav header {
+    font-size: 30px;
+}
+
+nav ul {
+    display: flex;
+    align-items: center;
 }
 
 .navLink {
     text-decoration: none;
-    color: black;
+    color: white;
+    font-size: 20px
 }
 
 :nth-child(1) { --nth-child: 1 }
@@ -37,8 +65,10 @@
 :nth-child(10) { --nth-child: 10 }
 
 .navLink:hover span {
-    animation: convert calc(var(--nth-child) * 300ms) linear;
+    animation: convert calc(var(--nth-child) * 150ms) linear;
     font-family: bionicle;
+    font-weight: 600;
+    line-height: -1px;
 }
 
 .activeNavLink {
@@ -46,5 +76,5 @@
 }
 
 .activeNavLink:hover span {
-    animation: convertBack calc(var(--nth-child) * 300ms) 500ms forwards;
+    animation: convertBack calc(var(--nth-child) * 150ms) 500ms forwards;
 }

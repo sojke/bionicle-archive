@@ -1,0 +1,18 @@
+ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+li {
+    display: flex;
+    justify-content: space-between;
+}
+
+.listInList {
+    display: inline-block;
+}
+
+.listInList li {
+    justify-content: end;
+}
