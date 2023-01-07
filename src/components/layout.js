@@ -32,9 +32,11 @@ const Layout = ({ pageTitle, children }) => {
         </ul>
       </nav>
       <main>
-        <h1>{pageTitle}</h1>
         {children}
       </main>
+      <footer>
+        
+      </footer>
     </>
   )
 }

@@ -16,3 +16,19 @@ li {
 .listInList li {
     justify-content: end;
 }
+
+button {
+    background-color: rgba(0, 0, 0, 0.6);
+	color: inherit;
+	border: 2px solid darkgray;
+    border-radius: 5px;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+    padding: 5px;
+}
+
+button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+    border-color: gray;
+}

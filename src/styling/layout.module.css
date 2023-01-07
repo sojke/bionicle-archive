@@ -11,13 +11,13 @@
 }
 
 @keyframes convert {
-    from {font-family: inherit; }
-    to {font-family: bionicle; }
+    from {font-family: inherit;font-weight: 400;line-height: initial;}
+    to {font-family: bionicle;font-weight: 600;line-height: 0;}
 }
 
 @keyframes convertBack {
-    from {font-family: bionicle;}
-    to {font-family: initial;}
+    from {font-family: bionicle;font-weight: 600;line-height: 0;}
+    to {font-family: voya-nui; font-weight: 400; line-height: initial;}
 }
 
 :root {
@@ -35,7 +35,7 @@ body {
 nav {
     display: flex;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.6);
 }
 
 nav header {
@@ -65,16 +65,15 @@ nav ul {
 :nth-child(10) { --nth-child: 10 }
 
 .navLink:hover span {
-    animation: convert calc(var(--nth-child) * 150ms) linear;
-    font-family: bionicle;
-    font-weight: 600;
-    line-height: -1px;
+    animation: calc(var(--nth-child) * 80ms) step-end forwards convert;
 }
 
-.activeNavLink {
+.activeNavLink span {
     font-family: bionicle;
+    font-weight: 600;
+    line-height: 0;
 }
 
 .activeNavLink:hover span {
-    animation: convertBack calc(var(--nth-child) * 150ms) 500ms forwards;
+    animation: calc(var(--nth-child) * 50ms) step-end 500ms forwards convertBack;
 }
