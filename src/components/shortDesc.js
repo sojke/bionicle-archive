@@ -5,7 +5,7 @@ const ShortDesc = ({description, slug, length}) => {
     const descArray = description.slice(0, length).split(' ');
     const shortDesc = descArray.filter((x,index) => index < (descArray.length - 1)).reduce((text, word) => text + ' ' + word,'');
     return (
-        <p>{shortDesc}<Link to={slug}>... Read More</Link></p>
+        <p>{shortDesc}<Link style={{textDecoration: 'none', color: 'darkgray'}} to={slug}>... Read More</Link></p>
     );
 }
 

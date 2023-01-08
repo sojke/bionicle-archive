@@ -32,3 +32,62 @@ button:hover {
     background-color: rgba(0, 0, 0, 0.8);
     border-color: gray;
 }
+
+.introContainer {
+    margin-top: 50px;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 50px;
+}
+
+.introContainer h1 {
+    margin-top: 0;
+    text-align: center;
+}
+
+.introContainer p {
+    font-size: 20px;
+}
+
+.searchbar {
+    width: 500px;
+    height: 30px;
+    margin-left: 300px;
+    margin-top: 50px;
+    font-size: 20px;
+}
+
+.bionicleContainer {
+    padding: 50px;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.bionicleContainer h2 {
+    margin-top: 0;
+    text-align: center;
+}
+
+.bionicleContainer p {
+    font-size: 20px;
+}
+
+.backButton {
+    position: fixed;
+    top: 15vh;
+    left: 2vw;
+}
+
+.infoList {
+    width: 50%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.infoList > li{
+    margin-bottom: 10px;
+    border-bottom: 1px solid white;
+}

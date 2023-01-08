@@ -11,18 +11,22 @@
 }
 
 @keyframes convert {
-    from {font-family: inherit;font-weight: 400;line-height: initial;}
-    to {font-family: bionicle;font-weight: 600;line-height: 0;}
+    from {font-family: inherit;font-weight: 400;line-height: initial;font-size: inherit;}
+    to {font-family: bionicle;font-weight: 600;line-height: 0;font-size: 19px;}
 }
 
 @keyframes convertBack {
-    from {font-family: bionicle;font-weight: 600;line-height: 0;}
-    to {font-family: voya-nui; font-weight: 400; line-height: initial;}
+    from {font-family: bionicle;font-weight: 600;line-height: 0;font-size: 19px;}
+    to {font-family: voya-nui; font-weight: 400; line-height: initial;font-size: inherit;}
 }
 
 :root {
     color: white;
     font-family: voya-nui;
+}
+
+p {
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 body {
@@ -35,15 +39,19 @@ body {
 
 main {
     padding-top: 10vh;
+    padding-left: 10vw;
+    padding-right: 10vw;
 }
 
 nav {
     height: 10vh;
     position: fixed;
     z-index: 2;
-    display: flex;
     width: 100%;
     background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
 }
 
 nav header {
@@ -51,8 +59,10 @@ nav header {
 }
 
 nav ul {
+    width: 60%;
     display: flex;
     align-items: center;
+    justify-content: space-between;
 }
 
 .navLink {
@@ -73,15 +83,26 @@ nav ul {
 :nth-child(10) { --nth-child: 10 }
 
 .navLink:hover span {
-    animation: calc(var(--nth-child) * 80ms) step-end forwards convert;
+    animation: calc(var(--nth-child) * 50ms) step-end forwards convert;
 }
 
 .activeNavLink span {
     font-family: bionicle;
     font-weight: 600;
     line-height: 0;
+    font-size: 19px;
+    color: rgb(47, 207, 221);
 }
 
 .activeNavLink:hover span {
     animation: calc(var(--nth-child) * 50ms) step-end 500ms forwards convertBack;
+}
+
+footer {
+    width: 100%;
+    position: absolute;
+    bottom: auto;
+    text-align: center;
+    text-shadow: black 1px 1px;
+    font-size: 16px;
 }

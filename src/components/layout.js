@@ -24,18 +24,21 @@ const Layout = ({ pageTitle, children }) => {
             <AnimatedLink linkText="HOME" linkTo="/"/>
           </li>
           <li>
-            <AnimatedLink linkText="ABOUT" linkTo="/about"/>
+            <AnimatedLink linkText="BIONICLES" linkTo="/bionicles"/>
           </li>
           <li>
-            <AnimatedLink linkText="BIONICLES" linkTo="/bionicles"/>
-          </li>        
+            <AnimatedLink linkText="SUBTHEMES" linkTo="/subthemes"/>
+          </li>
+          <li>
+            <AnimatedLink linkText="ABOUT" linkTo="/about"/>
+          </li>     
         </ul>
       </nav>
       <main>
         {children}
       </main>
       <footer>
-        
+          <p>&copy; The Bionicle Archives</p>
       </footer>
     </>
   )

@@ -2,6 +2,7 @@ import { GatsbyImage, getImage } from 'gatsby-plugin-image' ;
 import { Link } from 'gatsby';
 import * as React from 'react';
 import ShortDesc from './shortDesc';
+import {bionicleContainer} from '../styling/bionicles.module.css'
 
 const Bionicle = ({bionicle}) => {
     const title = bionicle.node.title;
@@ -11,9 +12,9 @@ const Bionicle = ({bionicle}) => {
     const categories = bionicle.node.subthemes.nodes;
     const slug = bionicle.node.slug;
     return (
-        <div>
-            <Link to={slug}>
-                <h2>{title}</h2>
+        <div className={bionicleContainer}>
+            <Link style={{textDecoration: 'none', color: 'white'}} to={slug}>
+                <h2 >{title}</h2>
             <GatsbyImage image={image} alt={alt}/>
             </Link>
             <h3>{categories.map((c,index) => <span>{(index < categories.length-1) ? c.name +  " - " : c.name}</span>)}</h3>

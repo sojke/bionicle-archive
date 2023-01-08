@@ -1,6 +1,6 @@
 import { graphql } from 'gatsby';
 import * as React from 'react';
-import Categorie from '../components/categorie';
+import Subtheme from '../components/subtheme';
 import Layout from '../components/layout';
 
 export const query = graphql`
@@ -35,7 +35,7 @@ const Subthemes = ({data: {allWpSubtheme: {edges}}}) => {
     return (
         <Layout pageTitle='Subthemes'>
             {edges.map(subtheme => 
-                <Categorie subtheme={subtheme}/>
+                <Subtheme subtheme={subtheme}/>
             )}
         </Layout>
     );
