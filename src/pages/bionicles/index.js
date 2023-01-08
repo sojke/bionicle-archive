@@ -1,7 +1,8 @@
-import { graphql, Link } from 'gatsby';
+import { graphql } from 'gatsby';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import * as React from 'react';
+import Bionicle from '../../components/bionicle';
 import Layout from '../../components/layout';
-import { GatsbyImage, getImage } from 'gatsby-plugin-image' 
 
 export const query = graphql`
 query {
@@ -30,30 +31,35 @@ query {
       }
     }
   }
+  wpPage(slug: {eq: "bionicles"}) {
+    bioniclesPageMeta {
+      title
+      description
+      picture {
+        altText
+        localFile {
+          childImageSharp {
+            gatsbyImageData(placeholder: BLURRED)
+          }
+        }
+      }
+    }
+  }
 }`;
 
-const BioniclePage = ({data: {allWpBionicle: {edges}}}) => {
+const BioniclePage = ({data: {allWpBionicle: {edges}, wpPage: {bioniclesPageMeta}}}) => {
+  const image = getImage(bioniclesPageMeta.picture.localFile);
+  const [filter, setFilter] = React.useState("");
+
   return (
     <Layout pageTitle="Bionicles">
-      {edges.map((bionicle) => {
-        const title = bionicle.node.title;
-        const image = getImage(bionicle.node.bionicleMeta.picture.localFile);
-        const alt = bionicle.node.bionicleMeta.picture.altText;
-        let description = bionicle.node.bionicleMeta.description.slice(0, 200).split(' ');
-        const shortDesc = description.filter((x,index) => index < (description.length - 1)).reduce((text, word) => text + ' ' + word,'');
-        const categories = bionicle.node.subthemes.nodes;
-        const slug = bionicle.node.slug;
-        return (
-          <div>
-            <Link to={slug}>
-              <h2>{title}</h2>
-              <GatsbyImage image={image} alt={alt}/>
-            </Link>
-            <h3>{categories.map((c,index) => <span>{(index < categories.length-1) ? c.name +  " - " : c.name}</span>)}</h3>
-            <p>{shortDesc}<Link to={slug}>... Read More</Link></p>
-          </div>
-        );
-      })}
+      <input type='text' placeholder='Search for bionicles' onChange={(event) => {setFilter(event.target.value)}}></input>
+      <h1>{bioniclesPageMeta.title}</h1>
+      <p>{bioniclesPageMeta.description}</p>
+      <GatsbyImage image={image}/>
+      {edges.filter(b => b.node.title.toLowerCase().slice(0, filter.length) === filter.toLowerCase() || b.node.bionicleMeta.name.toLowerCase().slice(0, filter.length) === filter.toLowerCase() || b.node.title.toLowerCase().replace(" ","").slice(0, filter.length) === filter.toLowerCase() ).map(bionicle =>
+        <Bionicle bionicle={bionicle} alt={bioniclesPageMeta.picture.altText}/>
+      )}
     </Layout>
   )
 }
