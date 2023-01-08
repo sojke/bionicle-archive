@@ -57,9 +57,11 @@ const BioniclePage = ({data: {allWpBionicle: {edges}, wpPage: {bioniclesPageMeta
       <h1>{bioniclesPageMeta.title}</h1>
       <p>{bioniclesPageMeta.description}</p>
       <GatsbyImage image={image}/>
-      {edges.filter(b => b.node.title.toLowerCase().slice(0, filter.length) === filter.toLowerCase() || b.node.bionicleMeta.name.toLowerCase().slice(0, filter.length) === filter.toLowerCase() || b.node.title.toLowerCase().replace(" ","").slice(0, filter.length) === filter.toLowerCase() ).map(bionicle =>
-        <Bionicle bionicle={bionicle} alt={bioniclesPageMeta.picture.altText}/>
-      )}
+      {edges.filter(b => b.node.title.toLowerCase().slice(0, filter.length) === filter.toLowerCase() || b.node.bionicleMeta.name.toLowerCase().slice(0, filter.length) === filter.toLowerCase() || b.node.title.toLowerCase().replace(" ","").slice(0, filter.length) === filter.toLowerCase() )
+        .map(bionicle =>
+          <Bionicle bionicle={bionicle} alt={bioniclesPageMeta.picture.altText}/>
+        )
+      }
     </Layout>
   )
 }
